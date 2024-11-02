@@ -1,6 +1,12 @@
 .app-container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
 }
 
 .todo-list {
@@ -20,6 +26,6 @@
 .notes-section {
   flex: 1;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
 }
 
