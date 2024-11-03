@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./PomodoroTimer.css";
 
 
 //all this does is set a timer for 25 minutes. need to add the customizability and breaks
@@ -23,8 +24,9 @@ const PomodoroTimer = () => {
    return (
       <div>
          <h1>FocusFruit</h1>
-         <div>{`${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`}</div>
+         <button type="button"><img src={require('./pen.png')} style={{width:"20px"}} /></button>
          <button onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
+         <div className="timer">{`${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`}</div>
       </div>
    );
 };
