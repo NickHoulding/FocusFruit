@@ -1,0 +1,20 @@
+*Things to implement*
+Pomodoro Timer
+To-do list
+Notes
+Presets
+Settings panel (prioritize functional settings, do background/sound customization later)
+Pop-up for editing Presets
+Gamification (streaks? some kind of activity for breaks?)
+Rotating reminders/tips
+Welcome/landing page
+Break page
+Timer countdown in browser tab
+
+
+*Things we can implement if we have time*
+Explanation to what a pomodoro timer is (in settings page?)
+Ambient sound player
+Fruit
+More Gamification
+Something to track user productivity (ask users to rank how productive they were and give suggestions based on answer?)
