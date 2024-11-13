@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import "./TodoList.css";
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
   const addTask = () => {
-    setTasks([...tasks, { text: newTask, id: Date.now() }]);
+    if (newTask.trim() === "") return;
+    setTasks([...tasks, 
+      { text: newTask, id: Date.now(), completed: false }]
+    );
     setNewTask("");
   };
 
@@ -13,22 +17,52 @@ const TodoList = () => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
+  const toggleTaskCompletion = (id) => {
+    setTasks(
+      tasks.map(task =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  };
+
   return (
     <div>
       <h2>To-Do List</h2>
       <input
+        className="inputField"
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
-        placeholder="Add a new task"
+        onKeyDown={handleKeyPress}
+        placeholder="Enter a task..."
       />
       <button onClick={addTask}>Add</button>
-      <ul>
+      <div>
         {tasks.map((task) => (
-          <li key={task.id}>
-            {task.text} <button onClick={() => deleteTask(task.id)}>Delete</button>
-          </li>
+          <div className="task" key={task.id}>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => toggleTaskCompletion(task.id)}
+            />
+            <span className="completedTask"
+              style={{
+                textDecoration: task.completed ? "line-through" : "none",
+                opacity: task.completed ? 0.30 : 1
+              }}
+            >
+              {task.text} 
+              <button className="delTask" onClick={() => deleteTask(task.id)}>X</button>
+            </span>
+          </div>
         ))}
-      </ul>
+      </div>
+      <button className="clearButton" onClick={() => setTasks([])}>Clear</button>
     </div>
   );
 };
