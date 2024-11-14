@@ -31,17 +31,23 @@
 }
 
 button {
-  background-color: transparent;
-  color: #000000;
-  border: 1px solid #000000;
-  padding: 5px 10px;
   border-radius: 5px;
-  margin: 5px;
-  transition: background-color 0.3s, color 0.3s;
+  border-color: #000000;
+  padding: 5px;
 }
 
 button:hover {
   background-color: #000000;
   color: #ffffff;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:disabled {
+  background-color: none;
+  border-color: #000000;
+  color: #000000;
+  background-color: transparent;
+  cursor: not-allowed;
+  opacity: 50%;
 }

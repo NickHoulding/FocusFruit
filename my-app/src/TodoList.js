@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import "./TodoList.css";
+import React, { useState } from 'react';
+import './TodoList.css';
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
+  const [newTask, setNewTask] = useState('');
 
   const addTask = () => {
-    if (newTask.trim() === "") return;
-    setTasks([...tasks, 
-      { text: newTask, id: Date.now(), completed: false }]
-    );
-    setNewTask("");
+    if (newTask.trim() === '') return;
+    setTasks([
+      ...tasks,
+      { text: newTask.trim(), id: Date.now(), completed: false }
+    ]);
+    setNewTask('');
   };
 
   const deleteTask = (id) => {
@@ -26,43 +27,67 @@ const TodoList = () => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       addTask();
+    }
+  };
+
+  const handleClear = () => {
+    if (tasks.length > 0) {
+      const confirmed = window.confirm('Are you sure you want to clear the task list?');
+      if (confirmed) {
+        setTasks([]);
+      }
     }
   };
 
   return (
     <div>
       <h2>To-Do List</h2>
-      <input
-        className="inputField"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-        onKeyDown={handleKeyPress}
-        placeholder="Enter a task..."
-      />
-      <button onClick={addTask}>Add</button>
+      <div className="input-container">
+        <input
+          className="inputField"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+          onKeyDown={handleKeyPress}
+          placeholder="Enter a task..."
+        />
+        <button className="addButton" onClick={addTask}>Add</button>
+      </div>
       <div>
         {tasks.map((task) => (
           <div className="task" key={task.id}>
             <input
               type="checkbox"
+              className="todo-checkbox"
               checked={task.completed}
               onChange={() => toggleTaskCompletion(task.id)}
             />
-            <span className="completedTask"
+            <span
+              className="completedTask"
               style={{
-                textDecoration: task.completed ? "line-through" : "none",
-                opacity: task.completed ? 0.30 : 1
+                textDecoration: task.completed ? 'line-through' : 'none',
+                opacity: task.completed ? 0.3 : 1
               }}
             >
-              {task.text} 
-              <button className="delTask" onClick={() => deleteTask(task.id)}>X</button>
+              {task.text}
             </span>
+            <button
+              className="delTask"
+              onClick={() => deleteTask(task.id)}
+            >
+              X
+            </button>
           </div>
         ))}
       </div>
-      <button className="clearButton" onClick={() => setTasks([])}>Clear</button>
+      <button
+        className="clearButton"
+        onClick={handleClear}
+        disabled={tasks.length === 0}
+      >
+        Clear
+      </button>
     </div>
   );
 };
