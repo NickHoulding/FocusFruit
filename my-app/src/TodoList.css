@@ -1,64 +1,78 @@
 .input-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .inputField {
-    flex-grow: 1;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  
-  .addButton {
-    width: 60px;
-    padding: 5px;
-    cursor: pointer;
-  }
-  
-  .task {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    border-radius: 5px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
-  .task:hover {
-    background-color: #dcdcdc;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .todo-checkbox {
-    width: 20px;
-  }
-  
-  .completedTask {
-    flex-grow: 1;
-  }
-  
-  .delTask {
-    width: 20px;
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-  }
+.inputField {
+  flex-grow: 1;
+  padding: 5px;
+  border-radius: 5px;
+  background: transparent;
+}
 
-  .delTask:hover {
-    background: none;
-    color: red;
-  }
-  
-  .clearButton {
-    width: 60px;
-    margin-top: 10px;
-  }
-  
-  .clearButton:disabled { 
-    background-color: none; 
-    cursor: not-allowed; 
-    opacity: 50%;
-  }
+.addButton, .clearButton {
+  width: 60px;
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.clearButton:disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+  opacity: 25%;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.task:hover {
+  background-color: #dcdcdc;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.todo-checkbox {
+  width: 20px;
+}
+
+.completedTask {
+  flex-grow: 1;
+  margin: 0 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.editInput {
+  flex-grow: 1;
+  margin: 0 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background: transparent;
+  font-size: 15px;
+}
+
+.delTask {
+  width: 20px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  opacity: 25%;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.delTask:hover {
+  background: rgb(223, 63, 63);
+  color: white;
+  opacity: 100%;
+}
