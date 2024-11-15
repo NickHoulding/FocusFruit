@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import SidePanel from "./SidePanel";
+import SidePanelBadges from "./SidePanelBadges";
 import "./Header.css";
 
 const Header = () => {
    const [isPanelOpen, setIsPanelOpen] = useState(false);
-   const togglePanel = () => {
+   const [isBadgesPanelOpen, setIsBadgesPanelOpen] = useState(false);
+   const toggleSettingsPanel = () => {
       setIsPanelOpen(!isPanelOpen);
+   };
+   const toggleBadgesPanel = () => {
+      setIsBadgesPanelOpen(!isBadgesPanelOpen);
    };
 
    return (
       <>
          <header className="header">
-            <button className="hamburger-button" onClick={togglePanel}>
+            <button className="hamburger-button" onClick={toggleSettingsPanel}>
             ☰
          </button>
          {/* <div className="site-name">FocusFruit</div> */}
@@ -22,9 +27,13 @@ const Header = () => {
          </select>
          </div>
          {/* get rid of this?? */}
-         <div className="streaks">Streaks</div>
+         <div className="badges">Achivements
+            <button className="badge-button" onClick={toggleBadgesPanel}>
+            </button>
+         </div>
          </header>
-         <SidePanel isOpen={isPanelOpen} onClose={togglePanel} />
+         <SidePanel isOpen={isPanelOpen} onClose={toggleSettingsPanel} />
+         <SidePanelBadges isOpen={isBadgesPanelOpen} onClose={toggleBadgesPanel} />
       </>
    );
 };
