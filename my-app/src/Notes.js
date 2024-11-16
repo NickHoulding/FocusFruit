@@ -1,17 +1,25 @@
 import React, { useState } from "react";
+import './Notes.css';
 
 const NotesSection = () => {
   const [notes, setNotes] = useState("");
-  
+  const [isHidden, setIsHidden] = useState(false);
+
+  const toggleNotes = () => {
+    setIsHidden(!isHidden);
+  };
+
   return (
-    <div>
-      <h2>Notes</h2>
+    <div className={`notesContainer ${isHidden ? 'hidden' : ''}`}>
+      <button className="toggleButton" onClick={toggleNotes}>
+        {isHidden ? '←' : '→'}
+      </button>
+      <h2 className={`notesHeader ${isHidden ? 'hidden' : ''}`}>Notes</h2>
       <textarea
+        className={`noteBox ${isHidden ? 'hidden' : ''}`}
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
         placeholder="Write your notes here..."
-        rows={10}
-        cols={30}
       />
     </div>
   );

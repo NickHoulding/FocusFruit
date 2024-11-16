@@ -1,8 +1,52 @@
+.todoContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+  background-color: #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+.todoContainer.hidden {
+  transform: translateX(calc(75px - 100%));
+}
+
+.todotoggleButton {
+  width: 35px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.todoHeader {
+  opacity: 100%;
+  transition: opacity 0.3s ease;
+  margin-top: 50px;
+}
+
+.todoHeader.hidden {
+  opacity: 0%;
+  pointer-events: none;
+}
+
 .input-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+  opacity: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.input-container.hidden {
+  opacity: 0%;
+  pointer-events: none;
 }
 
 .inputField {
@@ -13,7 +57,7 @@
 }
 
 .addButton, .clearButton {
-  width: 60px;
+  width: 50px;
   padding: 5px;
   cursor: pointer;
   margin-left: 10px;
@@ -23,6 +67,17 @@
   background-color: transparent;
   cursor: not-allowed;
   opacity: 25%;
+}
+
+.tasksContainer {
+  flex-grow: 1;
+  opacity: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.tasksContainer.hidden {
+  opacity: 0%;
+  pointer-events: none;
 }
 
 .task {

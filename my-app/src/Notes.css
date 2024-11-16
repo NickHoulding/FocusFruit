@@ -1,0 +1,53 @@
+.notesContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    transition: transform 0.3s ease;
+}
+
+.notesContainer.hidden {
+    transform: translateX(calc(100% - 75px));
+}
+
+.toggleButton {
+    width: 35px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.notesHeader {
+    opacity: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.notesHeader.hidden {
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.noteBox {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease;
+}
+
+.noteBox.hidden {
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}

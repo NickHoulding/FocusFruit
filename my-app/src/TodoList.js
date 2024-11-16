@@ -4,6 +4,7 @@ import './TodoList.css';
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [isHidden, setIsHidden] = useState(false);
 
   const addTask = () => {
     if (newTask.trim() === '') {
@@ -62,10 +63,17 @@ const TodoList = () => {
     }
   };
 
+  const togglePanel = () => {
+    setIsHidden(!isHidden);
+  };
+
   return (
-    <div>
-      <h2>To-Do List</h2>
-      <div className="input-container">
+    <div className={`todoContainer ${isHidden ? 'hidden' : ''}`}>
+      <button className="todotoggleButton" onClick={togglePanel}>
+        {isHidden ? '→' : '←'}
+      </button>
+      <h2 className={`todoHeader ${isHidden ? 'hidden' : ''}`}>To-Do List</h2>
+      <div className={`input-container ${isHidden ? 'hidden' : ''}`}>
         <input
           className="inputField"
           value={newTask}
@@ -82,7 +90,7 @@ const TodoList = () => {
           Clear
         </button>
       </div>
-      <div>
+      <div className={`tasksContainer ${isHidden ? 'hidden' : ''}`}>
         {tasks.map((task) => (
           <div className="task" key={task.id}>
             <input

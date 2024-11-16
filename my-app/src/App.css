@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .main-content {
@@ -12,8 +13,7 @@
 
 .todo-list {
   flex: 1;
-  padding: 20px;
-  background-color: #f0f0f0;
+  background-color: transparent;
 }
 
 .pomodoro-timer {
@@ -26,8 +26,7 @@
 
 .notes-section {
   flex: 1;
-  padding: 20px;
-  background-color: #f0f0f0;
+  background-color: transparent;
 }
 
 button {
