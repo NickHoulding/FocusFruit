@@ -10,11 +10,11 @@ function App() {
     <div className="app-container">
       <Header />
       <div className="main-content">
-        <div className="todo-list">
-          <TodoList/>
-        </div>
         <div className="pomodoro-timer">
           <PomodoroTimer/>
+        </div>
+        <div className="todo-list">
+          <TodoList/>
         </div>
         <div className="notes-section">
           <Notes/>

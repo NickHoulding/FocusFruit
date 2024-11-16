@@ -14,7 +14,7 @@ const Header = () => {
    };
 
    return (
-      <>
+      <div className="headerContainer">
          <header className="header">
             <button className="hamburger-button" onClick={toggleSettingsPanel}>
             ☰
@@ -26,15 +26,15 @@ const Header = () => {
             <option value="default">Default</option>
          </select>
          </div>
-         {/* get rid of this?? */}
-         <div className="badges">Achivements
+         <div className="badges">
             <button className="badge-button" onClick={toggleBadgesPanel}>
+               Achievements
             </button>
          </div>
          </header>
          <SidePanel isOpen={isPanelOpen} onClose={toggleSettingsPanel} />
          <SidePanelBadges isOpen={isBadgesPanelOpen} onClose={toggleBadgesPanel} />
-      </>
+      </div>
    );
 };
 
