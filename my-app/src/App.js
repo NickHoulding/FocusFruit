@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import PomodoroTimer from "./PomodoroTimer";
 import TodoList from "./TodoList";
@@ -6,12 +6,31 @@ import Notes from "./Notes";
 import "./App.css";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalPreset, setModalPreset] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const openEditPresetModal = (preset) => {
+    setModalPreset(preset);
+    setIsEditing(true);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="app-container">
-      <Header />
+      <Header openEditPresetModal={openEditPresetModal} />
       <div className="main-content">
         <div className="pomodoro-timer">
-          <PomodoroTimer/>
+          <PomodoroTimer
+            isModalOpen={isModalOpen}
+            modalPreset={modalPreset}
+            isEditing={isEditing}
+            closeModal={closeModal}
+          />
         </div>
         <div className="todo-list">
           <TodoList/>

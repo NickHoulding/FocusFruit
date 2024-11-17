@@ -3,7 +3,7 @@ import SidePanel from "./SidePanel";
 import SidePanelBadges from "./SidePanelBadges";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ openEditPresetModal }) => {
    const [isPanelOpen, setIsPanelOpen] = useState(false);
    const [isBadgesPanelOpen, setIsBadgesPanelOpen] = useState(false);
    const toggleSettingsPanel = () => {
@@ -32,7 +32,7 @@ const Header = () => {
             </button>
          </div>
          </header>
-         <SidePanel isOpen={isPanelOpen} onClose={toggleSettingsPanel} />
+         <SidePanel isOpen={isPanelOpen} onClose={toggleSettingsPanel} openEditPresetModal={openEditPresetModal} />
          <SidePanelBadges isOpen={isBadgesPanelOpen} onClose={toggleBadgesPanel} />
       </div>
    );
