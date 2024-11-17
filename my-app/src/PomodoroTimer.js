@@ -3,19 +3,18 @@ import Modal from "./Modal";
 
 const PomodoroTimer = () => {
    const defaultPreset = { name: "Default", workTime: 25, breakTime: 5 };
-   const [presets, setPresets] = useState([defaultPreset]); // Presets list
-   const [selectedPreset, setSelectedPreset] = useState(defaultPreset); // Active preset
-   const [workTime, setWorkTime] = useState(defaultPreset.workTime); // Current work time
-   const [breakTime, setBreakTime] = useState(defaultPreset.breakTime); // Current break time
-   const [time, setTime] = useState(workTime * 60); // Timer in seconds
+   const [presets, setPresets] = useState([defaultPreset]); 
+   const [selectedPreset, setSelectedPreset] = useState(defaultPreset); 
+   const [workTime, setWorkTime] = useState(defaultPreset.workTime); 
+   const [breakTime, setBreakTime] = useState(defaultPreset.breakTime); 
+   const [time, setTime] = useState(workTime * 60); 
    const [isWorkSession, setIsWorkSession] = useState(true);
    const [isActive, setIsActive] = useState(false);
-   const [message, setMessage] = useState(""); // End-of-work message
+   const [message, setMessage] = useState(""); 
    const [isModalOpen, setIsModalOpen] = useState(false);
-   const [modalPreset, setModalPreset] = useState(null); // Preset being created/edited
+   const [modalPreset, setModalPreset] = useState(null); 
    const [isEditing, setIsEditing] = useState(false);
 
-   // Update timer when work or break time changes
    useEffect(() => {
       if (isWorkSession) {
          setTime(workTime * 60);
@@ -24,7 +23,6 @@ const PomodoroTimer = () => {
       }
    }, [workTime, breakTime, isWorkSession]);
 
-   // Countdown logic
    useEffect(() => {
       let interval;
       if (isActive && time > 0) {
@@ -34,35 +32,33 @@ const PomodoroTimer = () => {
       } else if (time === 0 && isActive) {
          setMessage(isWorkSession ? "Great Job! You've earned a break." : "");
          setIsWorkSession(!isWorkSession);
-         setIsActive(false); // Pause timer
+         setIsActive(false);
       }
       return () => clearInterval(interval);
    }, [time, isActive, isWorkSession]);
 
-   // Switch to a selected preset
    const applyPreset = (preset) => {
       setSelectedPreset(preset);
       setWorkTime(preset.workTime);
       setBreakTime(preset.breakTime);
     
-      // Adjust time based on the current session type
       if (isWorkSession) {
          setTime(preset.workTime * 60);
       } else {
          setTime(preset.breakTime * 60);
       }
     
-      setIsActive(false); // Stop the timer
+      setIsActive(false); 
     };
 
    const openAddPresetModal = () => {
-      setModalPreset({ name: "", workTime: 25, breakTime: 5 }); // Default values
+      setModalPreset({ name: "", workTime: 25, breakTime: 5 });
       setIsEditing(false);
       setIsModalOpen(true);
    };
 
    const openEditPresetModal = (preset) => {
-      setModalPreset({ ...preset }); // Create a copy to avoid direct mutation
+      setModalPreset({ ...preset }); 
       setIsEditing(true);
       setIsModalOpen(true);
    };
@@ -71,14 +67,13 @@ const PomodoroTimer = () => {
       if (modalPreset.name.trim() === "") return;
     
       if (isEditing) {
-         // Update the existing preset
+
          setPresets((prevPresets) =>
             prevPresets.map((preset) =>
                preset.name === selectedPreset.name ? modalPreset : preset
             )
          );
       
-         // Apply the updated preset while maintaining the session type
          if (selectedPreset.name === modalPreset.name) {
                setSelectedPreset(modalPreset);
                setWorkTime(modalPreset.workTime);
@@ -90,14 +85,13 @@ const PomodoroTimer = () => {
                   setTime(modalPreset.breakTime * 60);
                }
          }
-         applyPreset(modalPreset); // Automatically select the new preset
+         applyPreset(modalPreset); 
       } else {
-         // Add a new preset
          setPresets((prevPresets) => [...prevPresets, modalPreset]);
-         applyPreset(modalPreset); // Automatically select the new preset
+         applyPreset(modalPreset);
       }
     
-      setIsModalOpen(false); // Close the modal
+      setIsModalOpen(false);
    };
 
    const toggleTimer = () => {
@@ -157,6 +151,7 @@ const PomodoroTimer = () => {
                   }
                />
             </label>
+            <br></br>
             <label>
                Work Time (minutes):
                <input
@@ -168,6 +163,7 @@ const PomodoroTimer = () => {
                   min="1"
                />
             </label>
+            <br></br>
             <label>
                Break Time (minutes):
                <input
