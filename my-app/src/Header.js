@@ -17,8 +17,12 @@ const Header = ({ openEditPresetModal }) => {
       <div className="headerContainer">
          <header className="header">
             <button className="hamburger-button" onClick={toggleSettingsPanel}>
-            ☰
-         </button>
+               <div className="hamburger-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </div>
+            </button>
          {/* <div className="site-name">FocusFruit</div> */}
          <div className="presets-dropdown">
          <select>
