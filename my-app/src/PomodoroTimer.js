@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 
-const PomodoroTimer = () => {
+const PomodoroTimer = ({
+   //selectedPreset,
+   //setSelectedPreset,
+   //isModalOpen,
+   //modalPreset,
+   //isEditing,
+   closeModal,
+   addOrUpdatePreset,
+   //setModalPreset,
+   //setIsEditing,
+   //setIsModalOpen,
+
+}) => {
    const defaultPreset = { name: "Default", workTime: 25, breakTime: 5 };
    const [presets, setPresets] = useState([defaultPreset]); 
    const [selectedPreset, setSelectedPreset] = useState(defaultPreset); 
@@ -108,7 +120,7 @@ const PomodoroTimer = () => {
    return (
       <div>
          <h2>Pomodoro Timer</h2>
-         {/* Presets Dropdown */}
+       
          <div>
          <label>
             Presets:
@@ -128,7 +140,7 @@ const PomodoroTimer = () => {
          <button onClick={openAddPresetModal}>Add Preset</button>
          </div>
 
-         {/* Timer Display */}
+
          <div>
          <h3>{isWorkSession ? "Work Session" : "Break Session"}</h3>
          <div>{`${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`}</div>
@@ -138,12 +150,14 @@ const PomodoroTimer = () => {
          <button onClick={resetTimer}>Reset</button>
          <button onClick={() => openEditPresetModal(selectedPreset)}>Edit Preset</button>
 
-         {/* Modal */}
+   
          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
             <h2>{modalPreset?.name ? "Edit Preset" : "Add Preset"}</h2>
             <label>
                Preset Name:
+               <br></br>
                <input
+                  class="inputField"
                   type="text"
                   value={modalPreset?.name || ""}
                   onChange={(e) =>
@@ -152,11 +166,13 @@ const PomodoroTimer = () => {
                />
             </label>
             <br></br>
+            <br></br>
             <label>
                Work Time (minutes):
                <input
+                  class="inputField"
                   type="number"
-                  value={modalPreset?.workTime || 25}
+                  value={modalPreset?.workTime || !0}
                   onChange={(e) =>
                      setModalPreset((prev) => ({ ...prev, workTime: Number(e.target.value) }))
                   }
@@ -164,11 +180,13 @@ const PomodoroTimer = () => {
                />
             </label>
             <br></br>
+            <br></br>
             <label>
                Break Time (minutes):
                <input
+                  class="inputField"
                   type="number"
-                  value={modalPreset?.breakTime || 5}
+                  value={modalPreset?.breakTime || !0}
                   onChange={(e) =>
                      setModalPreset((prev) => ({ ...prev, breakTime: Number(e.target.value) }))
                   }
@@ -179,6 +197,7 @@ const PomodoroTimer = () => {
          </Modal>
       </div>
    );
-};
+}; 
+
 
 export default PomodoroTimer;

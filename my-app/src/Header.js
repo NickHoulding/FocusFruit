@@ -3,7 +3,12 @@ import SidePanel from "./SidePanel";
 import SidePanelBadges from "./SidePanelBadges";
 import "./Header.css";
 
-const Header = ({ openEditPresetModal }) => {
+const Header = ({ 
+   openEditPresetModal,
+   presets,
+   selectedPreset,
+   setSelectedPreset
+}) => {
    const [isPanelOpen, setIsPanelOpen] = useState(false);
    const [isBadgesPanelOpen, setIsBadgesPanelOpen] = useState(false);
    const toggleSettingsPanel = () => {
@@ -11,6 +16,17 @@ const Header = ({ openEditPresetModal }) => {
    };
    const toggleBadgesPanel = () => {
       setIsBadgesPanelOpen(!isBadgesPanelOpen);
+   };
+
+   const handlePresetChange = (e) => {
+      const value = e.target.value;
+      if (value === "add-new") {
+         //alert("hello"); testing
+         openEditPresetModal();
+      } else {
+         const preset = presets.find((p) => p.name === value);
+         if (preset) setSelectedPreset(preset);
+      }
    };
 
    return (
@@ -25,10 +41,15 @@ const Header = ({ openEditPresetModal }) => {
             </button>
          {/* <div className="site-name">FocusFruit</div> */}
          <div className="presets-dropdown">
-         <select>
-            <option value="title">Select Preset</option>
-            <option value="default">Default</option>
-         </select>
+            <select value={selectedPreset.name} onChange={handlePresetChange}>
+               <option value="title">Select Preset</option>
+               {presets.map((preset) => (
+                  <option key={preset.name} value={preset.name}>
+                     {preset.name}
+                  </option>
+               ))}
+               <option value="add-new">Add New Preset</option>
+            </select>
          </div>
          <div className="badges">
             <button className="badge-button" onClick={toggleBadgesPanel}>
