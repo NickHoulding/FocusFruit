@@ -17,6 +17,16 @@
    transform: translateX(0);
 }
 
+.side-panel.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+.side-panel.light-mode {
+  background-color: #fff;
+  color: black;
+}
+
 .close-button {
    background: none;
    border: none;
@@ -28,4 +38,73 @@
 h2 {
    margin-top: 0;
 }
- 
+
+.volume-slider {
+   width: 100%;
+}
+
+.color-picker {
+   width: 100%;
+   border-radius: 5px;
+}
+
+.mode-dropdown {
+   width: 100%;
+   padding: 5px;
+   font-size: 1em;
+   border-radius: 5px;
+   border-width: 2px;
+   border-color: white;
+   background: transparent;
+   color: white;
+   transition: background 0.3s ease, color 0.3s ease;
+   cursor: pointer;
+}
+
+.mode-dropdown option {
+   color: black;
+}
+
+.mode-dropdown:hover {
+   background: white;
+   color: black;
+   cursor: pointer;
+}
+
+.about-button {
+   width: calc(100% - 40px);
+   padding: 10px;
+   margin: 20px;
+   background: transparent;
+   border-color: white;
+   border-width: 2px;
+   color: white;
+   cursor: pointer;
+   font-size: 1em;
+   border-radius: 5px;
+   position: absolute;
+   bottom: 40px;
+   left: 0;
+}
+
+.about-button:hover {
+   background: white;
+   color: black;
+}
+
+.no-spacing {
+   margin: 0;
+   padding: 0;
+}
+
+.volume-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.volume-percentage {
+   margin-left: 10px;
+   font-size: 1em;
+   width: 50px;
+}

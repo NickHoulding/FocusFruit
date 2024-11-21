@@ -1,6 +1,8 @@
 *Things to implement*
 IP  Pomodoro Timer
 IP  Presets
+DN  ToDo List
+DN  Notes
 IP  Settings panel (prioritize functional settings, do
     background/sound customization later)
 IP  Pop-up for editing Presets
