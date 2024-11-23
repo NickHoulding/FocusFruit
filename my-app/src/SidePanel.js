@@ -5,11 +5,18 @@ import "./SidePanel.css";
 const SidePanel = ({ isOpen, onClose, openEditPresetModal, openAboutModal }) => {
    const [volume, setVolume] = useState(50);
 
+   const testVolume = () => {
+      const audio = new Audio('/sounds/new-notification-7-210334.mp3');
+      audio.volume = volume / 100;
+      audio.play().catch(error => {
+         console.error("Error playing audio:", error);
+      });
+   };
+
    return (
       <div className={`side-panel ${isOpen ? "open" : ""}`}>
          <button className="close-button" onClick={onClose}>X</button>
          <h2>Settings</h2>    
-         <button onClick={() => openEditPresetModal()}>Edit Preset</button>
          <h3>Volume</h3>
          <div className="volume-container">
             <input 
@@ -24,6 +31,7 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal, openAboutModal }) => 
             />
             <span className="volume-percentage">{volume}%</span>
          </div>
+         <button className="test-volume-button" onClick={testVolume}>Test Volume</button>
          <h3>Display</h3>
          <input type="color" className="color-picker" />
          <h3>Mode</h3>
