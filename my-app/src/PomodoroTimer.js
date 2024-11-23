@@ -49,6 +49,16 @@ const PomodoroTimer = ({
       return () => clearInterval(interval);
    }, [time, isActive, isWorkSession]);
 
+   useEffect(() => {
+      const hours = Math.floor(time / 3600);
+      const minutes = Math.floor((time % 3600) / 60);
+      if (time < 60) {
+         document.title = "Break soon...";
+      } else {
+         document.title = `${hours > 0 ? `${hours}h` : ""}${minutes > 0 ? ` ${minutes}m` : ""}`;
+      }
+   }, [time]);
+
    const applyPreset = (preset) => {
       setSelectedPreset(preset);
       setWorkTime(preset.workTime);

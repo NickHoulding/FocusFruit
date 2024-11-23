@@ -9,8 +9,8 @@ IP  Pop-up for editing Presets
 IP  Achievement Badges (Reached time milestone, etc.)
     Rotating reminders/tips
     Welcome/landing page
-    Break page
-    Timer countdown in browser tab
+IP  Break page
+DN  Timer countdown in browser tab
 
 *Things we can implement if we have time*
     Explanation to what a pomodoro timer is (in settings page?)
