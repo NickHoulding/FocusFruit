@@ -10,11 +10,18 @@
    padding: 10px 20px;
    background-color: #78ad7a;
    color: white;
+   position: relative;
 }
 
 .site-name {
    font-size: 1.5em;
    font-weight: bold;
+}
+
+.presets-dropdown {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
 }
 
 .presets-dropdown select {
