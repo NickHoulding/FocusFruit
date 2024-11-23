@@ -24,7 +24,7 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
 
    return (
       <div className={`side-panel ${isOpen ? "open" : ""}`}>
-         <button className="close-button" onClick={onClose}>X</button>
+         <button className="close-button" onClick={onClose}>&#10006;</button>
          <h2>Settings</h2>    
          <h3>Volume</h3>
          <div className="volume-container">

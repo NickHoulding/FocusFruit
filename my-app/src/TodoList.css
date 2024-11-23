@@ -137,3 +137,46 @@
   color: white;
   opacity: 100%;
 }
+
+.clearModal {
+  z-index: 100;
+}
+
+.noButton {
+  width: 50%;
+  margin-right: 20px;
+  background: none;
+  border-width: 2px;
+  border-color: black;
+  cursor: pointer;
+  color: black;
+}
+
+.yesButton {
+  width: 50%;
+  margin-left: 20px;
+  background: none;
+  border-width: 2px;
+  border-color: black;
+  cursor: pointer;
+  color: black;
+}
+
+.yesButton:hover {
+  background-color: red;
+  border-color: red;
+}
+
+.no-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+.bottom-spacing {
+  margin-bottom: 25px;
+}
+
+.buttonText {
+  margin: 0;
+  padding: 5px;
+}

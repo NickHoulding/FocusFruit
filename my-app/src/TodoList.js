@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './TodoList.css';
+import Modal from './Modal';
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [isHidden, setIsHidden] = useState(false);
+  const [isClearModalOpen, setIsClearModalOpen] = useState(false);
 
   const addTask = () => {
     if (newTask.trim() === '') {
@@ -37,12 +39,16 @@ const TodoList = () => {
   };
 
   const handleClear = () => {
-    if (tasks.length > 0) {
-      const confirmed = window.confirm('Are you sure you want to clear the task list?');
-      if (confirmed) {
-        setTasks([]);
-      }
-    }
+    setIsClearModalOpen(true);
+  };
+
+  const confirmClear = () => {
+    setTasks([]);
+    setIsClearModalOpen(false);
+  };
+
+  const cancelClear = () => {
+    setIsClearModalOpen(false);
   };
 
   const toggleEditMode = (id) => {
@@ -127,11 +133,35 @@ const TodoList = () => {
               className="delTask"
               onClick={() => deleteTask(task.id)}
             >
-              X
+              &#10006;
             </button>
           </div>
         ))}
       </div>
+      <Modal 
+        className="clearModal"
+        isOpen={isClearModalOpen} 
+        onClose={cancelClear}>
+        <h2 className='no-spacing'>
+          Clear To-Do List</h2>
+        <p className='bottom-spacing'>Are you sure you want to clear the To-Do list?</p>
+        <div className="modal-buttons">
+          <button 
+            className='noButton'
+            onClick={cancelClear}>
+              <h2 className='buttonText'>
+              No
+              </h2>
+          </button>
+          <button 
+            className='yesButton'
+            onClick={confirmClear}>
+              <h2 className='buttonText'>
+                Yes
+              </h2>
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };
