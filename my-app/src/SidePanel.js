@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import "./SidePanel.css";
 
-const SidePanel = ({ isOpen, onClose, openEditPresetModal, openAboutModal }) => {
+const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
    const [volume, setVolume] = useState(50);
+   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
    const testVolume = () => {
       const audio = new Audio('/sounds/new-notification-7-210334.mp3');
@@ -11,6 +12,14 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal, openAboutModal }) => 
       audio.play().catch(error => {
          console.error("Error playing audio:", error);
       });
+   };
+
+   const openAboutModal = () => {
+      setIsAboutModalOpen(true);
+   };
+
+   const closeAboutModal = () => {
+      setIsAboutModalOpen(false);
    };
 
    return (
@@ -42,6 +51,10 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal, openAboutModal }) => 
          <button className="about-button" onClick={openAboutModal}>
             <h3 className="no-spacing">About</h3>
          </button>
+         <Modal isOpen={isAboutModalOpen} onClose={closeAboutModal}>
+            <h2>About</h2>
+            <p>This is a Pomodoro Timer application to help you manage your time effectively.</p>
+         </Modal>
       </div>
    );
 };

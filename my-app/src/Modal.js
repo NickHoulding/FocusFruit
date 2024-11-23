@@ -6,10 +6,8 @@ const Modal = ({ isOpen, onClose, children }) => {
 
    return (
       <div className="modal-overlay">
-         <div className="modal-content">
-            <button className="close-button" onClick={onClose}>
-               X
-            </button>
+         <div className="modal">
+            <button className="close-button" onClick={onClose}>X</button>
             {children}
          </div>
       </div>

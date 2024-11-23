@@ -126,3 +126,36 @@ h2 {
    background: white;
    color: black;
 }
+
+.modal {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: white;
+   color: black;
+   padding: 20px;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+   z-index: 4;
+   border-radius: 10px;
+   width: 80%;
+   max-width: 500px;
+}
+
+.modal .close-button {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   background: none;
+   border: none;
+   font-size: 1.5em;
+   cursor: pointer;
+   color: black;
+}
+
+.close-button:hover {
+   background-color: #000000;
+   color: #ffffff;
+   cursor: pointer;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
