@@ -26,25 +26,44 @@
 
 .presets-dropdown select {
    padding: 5px;
-   font-size: 1em;
+   font-size: 16pt;
+   font-weight: bold;
    border: none;
    border-radius: 5px;
-   background-color: #fff;
-   color: #333;
+   background-color: rgba(0, 0, 0, 0.25);
+   color: white;
 }
 
-.badges {
-   font-size: 1.2em;
-   font-weight: bold;
+.presets-dropdown select option {
+   background-color: white;
+   color: black;
+}
+
+.presets-dropdown select:hover {
+   background-color: rgba(0, 0, 0, 1);
+   padding: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .badge-button {
-   background-color: transparent;
+   background-color: rgba(0, 0, 0, 0.25);
    color: white;
    border: none;
    font-size: 16pt;
    font-weight: bold;
    cursor: pointer;
+   padding: 5px;
+}
+
+.hamburger-button {
+   background-color: rgba(0, 0, 0, 0.25);
+   border: none;
+   cursor: pointer;
+}
+
+.hamburger-icon span {
+   color: white;
 }
 
 .hamburger-icon {
@@ -54,7 +73,6 @@
    display: flex;
    flex-direction: column;
    justify-content: space-around;
-   
  }
 
  .hamburger-icon span {
