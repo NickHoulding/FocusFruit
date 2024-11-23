@@ -163,8 +163,8 @@
 }
 
 .yesButton:hover {
-  background-color: red;
-  border-color: red;
+  background-color: rgb(223, 63, 63);
+  border-color: rgb(223, 63, 63);
 }
 
 .no-spacing {
