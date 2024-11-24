@@ -52,12 +52,13 @@ const PomodoroTimer = ({
    useEffect(() => {
       const hours = Math.floor(time / 3600);
       const minutes = Math.floor((time % 3600) / 60);
+      const sessionType = isWorkSession ? "W:" : "B:";
       if (time < 60) {
-         document.title = "Break soon...";
+         document.title = `${sessionType} Ending...`;
       } else {
-         document.title = `${hours > 0 ? `${hours}h` : ""}${minutes > 0 ? ` ${minutes}m` : ""}`;
+         document.title = `${sessionType} ${hours > 0 ? `${hours}h` : ""}${minutes > 0 ? ` ${minutes}m` : ""}`;
       }
-   }, [time]);
+   }, [time, isWorkSession]);
 
    const applyPreset = (preset) => {
       setSelectedPreset(preset);
