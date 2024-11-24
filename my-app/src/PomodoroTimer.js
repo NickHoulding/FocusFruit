@@ -2,17 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 
 const PomodoroTimer = ({
-   //selectedPreset,
-   //setSelectedPreset,
-   //isModalOpen,
-   //modalPreset,
-   //isEditing,
-   closeModal,
-   addOrUpdatePreset,
-   //setModalPreset,
-   //setIsEditing,
-   //setIsModalOpen,
-
+   volume
 }) => {
    const defaultPreset = { name: "Default", workTime: 25, breakTime: 5 };
    const [presets, setPresets] = useState([defaultPreset]); 
@@ -26,6 +16,7 @@ const PomodoroTimer = ({
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [modalPreset, setModalPreset] = useState(null); 
    const [isEditing, setIsEditing] = useState(false);
+   const [audio] = useState(new Audio('/sounds/new-notification-7-210334.mp3'));
 
    useEffect(() => {
       if (isWorkSession) {
@@ -42,12 +33,18 @@ const PomodoroTimer = ({
             setTime((prevTime) => prevTime - 1);
          }, 1000);
       } else if (time === 0 && isActive) {
+         if (!isNaN(volume) && volume >= 0 && volume <= 100) {
+            audio.volume = volume / 100;
+         }
+         audio.play().catch(error => {
+            console.error("Error playing audio:", error);
+         });
          setMessage(isWorkSession ? "Great Job! You've earned a break." : "");
          setIsWorkSession(!isWorkSession);
          setIsActive(false);
       }
       return () => clearInterval(interval);
-   }, [time, isActive, isWorkSession]);
+   }, [time, isActive, isWorkSession, volume]);
 
    useEffect(() => {
       const hours = Math.floor(time / 3600);

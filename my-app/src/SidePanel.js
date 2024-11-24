@@ -52,7 +52,7 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
             <h3 className="no-spacing">About</h3>
          </button>
          <Modal isOpen={isAboutModalOpen} onClose={closeAboutModal}>
-            <h2>About</h2>
+            <h2>About FocusFruit</h2>
             <p>This is a Pomodoro Timer application to help you manage your time effectively.</p>
          </Modal>
       </div>
