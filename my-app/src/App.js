@@ -63,7 +63,48 @@ function App() {
       </div>
       {isModalOpen && (
         <Modal onClose={closeModal} isOpen={isModalOpen}>
-          <p>Your modal content here.</p>
+          <h2>{isEditing ? "Edit Preset" : "Add Preset"}</h2>
+          <label>
+            Preset Name:
+            <br></br>
+            <input
+              className="inputField"
+              type="text"
+              value={modalPreset?.name || ""}
+              onChange={(e) =>
+                setModalPreset((prev) => ({ ...prev, name: e.target.value }))
+              }
+            />
+          </label>
+          <br></br>
+          <br></br>
+          <label>
+            Work Time (minutes):
+            <input
+              className="inputField"
+              type="number"
+              value={modalPreset?.workTime || 0}
+              onChange={(e) =>
+                setModalPreset((prev) => ({ ...prev, workTime: Number(e.target.value) }))
+              }
+              min="1"
+            />
+          </label>
+          <br></br>
+          <br></br>
+          <label>
+            Break Time (minutes):
+            <input
+              className="inputField"
+              type="number"
+              value={modalPreset?.breakTime || 0}
+              onChange={(e) =>
+                setModalPreset((prev) => ({ ...prev, breakTime: Number(e.target.value) }))
+              }
+              min="1"
+            />
+          </label>
+          <button onClick={() => addPreset(modalPreset)}>Save</button>
         </Modal>
       )}
     </div>

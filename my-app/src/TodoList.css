@@ -138,10 +138,6 @@
   opacity: 100%;
 }
 
-.clearModal {
-  z-index: 100;
-}
-
 .noButton {
   width: 50%;
   margin-right: 20px;

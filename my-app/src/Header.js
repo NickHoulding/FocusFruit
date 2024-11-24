@@ -21,8 +21,7 @@ const Header = ({
    const handlePresetChange = (e) => {
       const value = e.target.value;
       if (value === "add-new") {
-         //alert("hello"); testing
-         openEditPresetModal();
+         openEditPresetModal({ name: "", workTime: 25, breakTime: 5 });
       } else {
          const preset = presets.find((p) => p.name === value);
          if (preset) setSelectedPreset(preset);
