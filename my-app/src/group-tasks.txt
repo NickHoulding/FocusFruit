@@ -1,20 +1,22 @@
-*Things to implement*
-IP  Pomodoro Timer
-IP  Presets
-DN  ToDo List
-DN  Notes
-IP  Settings panel (prioritize functional settings, do
-    background/sound customization later)
-IP  Pop-up for editing Presets
-IP  Achievement Badges (Reached time milestone, etc.)
-    Rotating reminders/tips
-    Welcome/landing page
-IP  Break page
-DN  Timer countdown in browser tab
+CORE IMPLEMENTATION
+Status  Assignee    Task
+-------------------------------------------------
+IP      Kiley       Pomodoro Timer
+IP      Kiley       Presets
+DN      Nick        ToDo List
+DN      Nick        Notes
+IP      Nick        Settings panel (prioritize functional settings)
+IP      Kiley       Pop-up for editing Presets
+IP      Thor        Achievement Badges (Reached time milestone, etc.)
+NS      Kiley       Rotating reminders/tips
+NS      Nick        Welcome/landing page
+IP      Kiley       Break page
+DN      Nick        Timer countdown in browser tab
 
-*Things we can implement if we have time*
-IP  Explanation to what a pomodoro timer is (in settings page?)
-    Ambient sound player
-IP  Fruit
-    More Gamification
-    Something to track user productivity (ask users to rank how productive they were and give suggestions based on answer?)
+EXTRA IMPLEMENTATION
+Status  Assignee    Task
+-------------------------------------------------
+IP      Nick        Explanation: What a pomodoro timer? (About button in settings)
+NS                  Ambient sound player
+IP      Nick        Fruit Logo
+NS                  More Gamification (Track user productivity, rank, etc.)
