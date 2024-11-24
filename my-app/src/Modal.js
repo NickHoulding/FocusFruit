@@ -1,17 +1,17 @@
-import React from "react";
-import "./Modal.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './Modal.css';
 
-const Modal = ({ isOpen, onClose, children }) => {
-   if (!isOpen) return null;
-
-   return (
-      <div className="modal-overlay">
-         <div className="modal">
-            <button className="close-button" onClick={onClose}>&#10006;</button>
-            {children}
-         </div>
+const Modal = ({ onClose, children, isOpen }) => {
+  return ReactDOM.createPortal(
+    <div className={`modal-overlay ${!isOpen ? 'hidden' : ''}`} onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <button className="close-button" onClick={onClose}>&#10006;</button>
+        {children}
       </div>
-   );
+    </div>,
+    document.getElementById('modal-root')
+  );
 };
 
 export default Modal;

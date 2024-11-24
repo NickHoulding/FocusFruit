@@ -3,6 +3,7 @@ import Header from "./Header";
 import PomodoroTimer from "./PomodoroTimer";
 import TodoList from "./TodoList";
 import Notes from "./Notes";
+import Modal from "./Modal";
 import "./App.css";
 
 function App() {
@@ -60,6 +61,11 @@ function App() {
           <Notes/>
         </div>
       </div>
+      {isModalOpen && (
+        <Modal onClose={closeModal} isOpen={isModalOpen}>
+          <p>Your modal content here.</p>
+        </Modal>
+      )}
     </div>
   );
 }
