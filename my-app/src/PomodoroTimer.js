@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
+import "./PomodoroTimer.css";
+import pen from "./pen.png";
 
 const PomodoroTimer = ({
    volume
@@ -126,8 +128,8 @@ const PomodoroTimer = ({
    };
 
    return (
-      <div>
-         <h2>Pomodoro Timer</h2>
+      <div className="pomodoro-timer-container">
+         <h1>FocusFruit</h1>
        
          <div>
          <label>
@@ -147,23 +149,25 @@ const PomodoroTimer = ({
          </label>
          <button onClick={openAddPresetModal}>Add Preset</button>
          </div>
+         <br></br><br></br>
 
+         {message && <p className="message">{message}</p>}
+         <div className="pomodoro-timer-buttons"  >
+            <button onClick={() => openEditPresetModal(selectedPreset)}><img src={pen} alt="Pen"></img></button>
+            <button onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
+            <button onClick={resetTimer}>Reset</button>
+         </div>
 
-         <div>
-         <h3>{isWorkSession ? "Work Session" : "Break Session"}</h3>
+         <div className="pomodoro-timer-display">
          <div>{`${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`}</div>
          </div>
-         {message && <p className="message">{message}</p>}
-         <button onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
-         <button onClick={resetTimer}>Reset</button>
-         <button onClick={() => openEditPresetModal(selectedPreset)}>Edit Preset</button>
 
+         <h2>{isWorkSession ? "Work Session" : "Break Session"}</h2>
    
          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
             <h2>{modalPreset?.name ? "Edit Preset" : "Add Preset"}</h2>
-            <label>
+            <label className="modal-line">
                Preset Name:
-               <br></br>
                <input
                   class="inputField"
                   type="text"
@@ -174,8 +178,7 @@ const PomodoroTimer = ({
                />
             </label>
             <br></br>
-            <br></br>
-            <label>
+            <label className="modal-line">
                Work Time (minutes):
                <input
                   class="inputField"
@@ -188,8 +191,7 @@ const PomodoroTimer = ({
                />
             </label>
             <br></br>
-            <br></br>
-            <label>
+            <label className="modal-line">
                Break Time (minutes):
                <input
                   class="inputField"
@@ -201,6 +203,7 @@ const PomodoroTimer = ({
                   min="1"
                />
             </label>
+            <br></br>
             <button onClick={savePreset}>Save</button>
          </Modal>
       </div>

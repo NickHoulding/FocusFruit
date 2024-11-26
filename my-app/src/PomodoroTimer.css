@@ -1,24 +1,50 @@
-.timer {
-   font-size: 7em;
-}
-
-.input-container {
+.pomodoro-timer-container {
    display: flex;
+   justify-content: center;
    align-items: center;
-   justify-content: space-between;
-   margin-bottom: 10px;
-   opacity: 100%;
-   transition: opacity 0.3s ease;
+   height: 80vh; /* adjust to center vertically */
+   flex-direction: column;
+   padding: 20px;
+}
+ 
+.pomodoro-timer-display {
+   font-size: 7rem;
+   font-weight: bold;
+   color: #3b7237;
 }
 
-.input-container.hidden {
-   opacity: 0%;
-   pointer-events: none;
+.pomodoro-timer-buttons {
+   display: flex;
+   gap: 10px;
+}
+
+.pomodoro-timer-buttons button {
+   padding: 10px 20px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   color: black;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.pomodoro-timer-buttons button  img{
+   width: 1.5rem;
+}
+
+.pomodoro-timer-buttons button:hover img{
+   filter: invert(100%);
+}
+
+.modal-line{
+   display: flex;
+   gap: 10px;
 }
 
 .inputField {
-   flex-grow: 1;
    padding: 5px;
    border-radius: 5px;
    background: transparent;
+   width: 100px;
 }
