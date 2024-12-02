@@ -16,7 +16,7 @@ DN      Nick        Timer countdown in browser tab
 EXTRA IMPLEMENTATION
 Status  Assignee    Task
 -------------------------------------------------
-IP      Nick        Explanation: What a pomodoro timer? (About button in settings)
+DN      Nick        Explanation: What is FocusFruit? (About button in settings)
 NS                  Ambient sound player
-IP      Nick        Fruit Logo
+DN      Nick        Fruit Logo
 NS                  More Gamification (Track user productivity, rank, etc.)
