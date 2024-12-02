@@ -31,12 +31,8 @@ const Header = ({
    return (
       <div className="headerContainer">
          <header className="header">
-            <button className="hamburger-button" onClick={toggleSettingsPanel}>
-               <div className="hamburger-icon">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-               </div>
+            <button className="settings-button" onClick={toggleSettingsPanel}>
+               <img src="/icons/settings-gear.svg" alt="Settings" className="settings-icon" />
             </button>
          {/* <div className="site-name">FocusFruit</div> */}
          <div className="presets-dropdown">

@@ -19,6 +19,7 @@ const PomodoroTimer = ({
    const [modalPreset, setModalPreset] = useState(null); 
    const [isEditing, setIsEditing] = useState(false);
    const [audio] = useState(new Audio('/sounds/new-notification-7-210334.mp3'));
+   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
 
    useEffect(() => {
       if (isWorkSession) {
@@ -46,14 +47,14 @@ const PomodoroTimer = ({
          setIsActive(false);
       }
       return () => clearInterval(interval);
-   }, [time, isActive, isWorkSession, volume]);
+   }, [time, isActive, isWorkSession, volume, audio]);
 
    useEffect(() => {
       const hours = Math.floor(time / 3600);
       const minutes = Math.floor((time % 3600) / 60);
       const sessionType = isWorkSession ? "W:" : "B:";
       if (time < 60) {
-         document.title = `${sessionType} Ending...`;
+         document.title = `${sessionType} Finishing up...`;
       } else {
          document.title = `${sessionType} ${hours > 0 ? `${hours}h` : ""}${minutes > 0 ? ` ${minutes}m` : ""}`;
       }
@@ -121,10 +122,19 @@ const PomodoroTimer = ({
       setIsActive(!isActive);
    }
 
-   const resetTimer = () => {
+   const openResetModal = () => {
+      setIsResetModalOpen(true);
+   };
+
+   const confirmReset = () => {
       setIsActive(false);
       setMessage("");
       setTime(isWorkSession ? workTime * 60 : breakTime * 60);
+      setIsResetModalOpen(false);
+   };
+
+   const cancelReset = () => {
+      setIsResetModalOpen(false);
    };
 
    return (
@@ -155,11 +165,17 @@ const PomodoroTimer = ({
          <div className="pomodoro-timer-buttons"  >
             <button onClick={() => openEditPresetModal(selectedPreset)}><img src={pen} alt="Pen"></img></button>
             <button onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
-            <button onClick={resetTimer}>Reset</button>
+            <button onClick={openResetModal}>Reset</button>
          </div>
 
          <div className="pomodoro-timer-display">
-         <div>{`${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`}</div>
+            <div>
+               {time >= 3600
+                  ? `${Math.floor(time / 3600)}:${Math.floor((time % 3600) / 60).toString().padStart(2, '0')}:${(time % 60).toString().padStart(2, '0')}`
+                  : time >= 60
+                  ? `${Math.floor(time / 60)}:${(time % 60).toString().padStart(2, '0')}`
+                  : `${time}s`}
+            </div>
          </div>
 
          <h2>{isWorkSession ? "Work Session" : "Break Session"}</h2>
@@ -205,6 +221,31 @@ const PomodoroTimer = ({
             </label>
             <br></br>
             <button onClick={savePreset}>Save</button>
+         </Modal>
+
+         <Modal 
+            className="resetModal"
+            isOpen={isResetModalOpen} 
+            onClose={cancelReset}>
+            <h2 className='no-spacing'>
+               Reset Timer</h2>
+            <p className='bottom-spacing'>Are you sure you want to reset the timer?</p>
+            <div className="modal-buttons">
+               <button 
+                  className='noButton'
+                  onClick={cancelReset}>
+                  <h2 className='buttonText'>
+                  No
+                  </h2>
+               </button>
+               <button 
+                  className='yesButton'
+                  onClick={confirmReset}>
+                  <h2 className='buttonText'>
+                     Yes
+                  </h2>
+               </button>
+            </div>
          </Modal>
       </div>
    );

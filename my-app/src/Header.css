@@ -62,8 +62,20 @@
    cursor: pointer;
 }
 
-.hamburger-icon span {
+.settings-button {
    color: white;
+   background-color: rgba(0, 0, 0, 0.25);
+   border: none;
+   cursor: pointer;
+}
+
+.settings-icon {
+   width: 24px;
+   height: 24px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   filter: invert(100%);
 }
 
 .hamburger-icon {
