@@ -72,7 +72,7 @@ const PomodoroTimer = ({
          changeHint();
       }
       return () => clearInterval(interval);
-   }, [time, isActive, isWorkSession, volume, audio, currentHint]);
+   }, [time, isActive, isWorkSession, volume, audio, currentHint, changeHint]);
 
    useEffect(() => {
       const hours = Math.floor(time / 3600);
@@ -182,13 +182,13 @@ const PomodoroTimer = ({
                ))}
             </select>
          </label>
-         <button onClick={openAddPresetModal}>Add Preset</button>
+         <button 
+            className="add-preset-button"
+            onClick={openAddPresetModal}>{"Add Preset"}</button>
          </div>
-         <br></br><br></br>
-
          {message && <p className="message">{message}</p>}
          <div className="pomodoro-timer-buttons"  >
-            <button onClick={() => openEditPresetModal(selectedPreset)}><img src={pen} alt="Pen"></img></button>
+            <button onClick={() => openEditPresetModal(selectedPreset)}> {"Edit"}</button>
             <button onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
             <button onClick={openResetModal}>Reset</button>
          </div>
@@ -206,7 +206,7 @@ const PomodoroTimer = ({
          <h2>{isWorkSession ? "Work Session" : "Break Session"}</h2>
    
          <div className="hints">
-            <p>{currentHint || "Set a clear goal for this session- what do you want to achieve?"}</p>
+            <p>{currentHint || "Set a clear goal for this session - what do you want to achieve?"}</p>
          </div>
 
          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
