@@ -20,6 +20,30 @@ const PomodoroTimer = ({
    const [isEditing, setIsEditing] = useState(false);
    const [audio] = useState(new Audio('/sounds/new-notification-7-210334.mp3'));
    const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+   const [currentHint, setCurrentHint] = useState("");
+
+   const hints = [
+      "Remember to sit up straight and maintain good posture!",
+      "Take a deep breath and relax your shoulders.",
+      "Stay hydrated—grab a glass of water during your break!",
+      "Organize your workspace to stay focused.",
+      "Stretch your legs for a minute during your break.",
+      "Keep distractions like your phone out of reach!",
+      "Visualize your goals for the day before starting again.",
+      "Write down stray thoughts to revisit later without losing focus.",
+      "Break big tasks into smaller, manageable chunks.",
+      "Imagine how satisfying it will feel to complete this task."
+   ];
+
+   const getRandomHint = () => {
+      const randomIndex = Math.floor(Math.random() * hints.length);
+      return hints[randomIndex];
+   };
+
+   const changeHint = () => {
+      const newHint = getRandomHint();
+      setCurrentHint(newHint);
+   }
 
    useEffect(() => {
       if (isWorkSession) {
@@ -45,9 +69,10 @@ const PomodoroTimer = ({
          setMessage(isWorkSession ? "Great Job! You've earned a break." : "");
          setIsWorkSession(!isWorkSession);
          setIsActive(false);
+         changeHint();
       }
       return () => clearInterval(interval);
-   }, [time, isActive, isWorkSession, volume, audio]);
+   }, [time, isActive, isWorkSession, volume, audio, currentHint]);
 
    useEffect(() => {
       const hours = Math.floor(time / 3600);
@@ -180,6 +205,10 @@ const PomodoroTimer = ({
 
          <h2>{isWorkSession ? "Work Session" : "Break Session"}</h2>
    
+         <div className="hints">
+            <p>{currentHint || "Set a clear goal for this session- what do you want to achieve?"}</p>
+         </div>
+
          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
             <h2>{modalPreset?.name ? "Edit Preset" : "Add Preset"}</h2>
             <label className="modal-line">
