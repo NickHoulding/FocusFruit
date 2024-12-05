@@ -88,9 +88,13 @@ const TodoList = () => {
 
   return (
     <div className={`todoContainer ${isHidden ? "hidden" : ""}`}>
-        <button className="todotoggleButton" onClick={togglePanel}>
-          {isHidden ? "→" : "←"}
-        </button>
+      <button className="todotoggleButton" onClick={togglePanel}>
+        {isHidden ? (
+          <img src="./icons/todo-list-icon.svg" alt="Todo List Icon" className="todoListIcon" />
+        ) : (
+          <span className="closeIcon">&#10006;</span>
+        )}
+      </button>
       <h2 className={`todoHeader ${isHidden ? "hidden" : ""}`}>To-Do List</h2>
       <div className={`input-container ${isHidden ? "hidden" : ""}`}>
         <button

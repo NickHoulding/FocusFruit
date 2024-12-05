@@ -17,6 +17,7 @@
 
 .todotoggleButton {
   width: 40px;
+  height: 50px;
   background: transparent;
   border: none;
   font-size: 1.8rem;
@@ -26,6 +27,10 @@
   right: 20px;
   color: var(--text-color);
   background-color: var(--bg-secondary);
+}
+
+.todoListIcon {
+  margin-top: 5px;
 }
 
 .todotoggleButton:hover {
@@ -69,7 +74,8 @@
 }
 
 .inputField {
-  width: calc(100% - 13px);
+  width: calc(100% - 13px); /* Adjust width to fit below buttons */
+
   margin-bottom: 20px;
   padding: 5px;
   font-size: 1.2rem;
