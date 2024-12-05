@@ -12,7 +12,11 @@ const NotesSection = () => {
   return (
     <div className={`notesContainer ${isHidden ? 'hidden' : ''}`}>
       <button className="toggleButton" onClick={toggleNotes}>
-        {isHidden ? '←' : '→'}
+        {isHidden ? (
+          <img src="./icons/notes-icon.svg" alt="Notes Icon" className="notesIcon" />
+        ) : (
+          <span className="closeIcon">&#10006;</span>
+        )}
       </button>
       <h2 className={`notesHeader ${isHidden ? 'hidden' : ''}`}>Notes</h2>
       <textarea

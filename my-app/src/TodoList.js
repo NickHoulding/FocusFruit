@@ -88,21 +88,15 @@ const TodoList = () => {
 
   return (
     <div className={`todoContainer ${isHidden ? "hidden" : ""}`}>
-        <button className="todotoggleButton" onClick={togglePanel}>
-          {isHidden ? "→" : "←"}
-        </button>
+      <button className="todotoggleButton" onClick={togglePanel}>
+        {isHidden ? (
+          <img src="./icons/todo-list-icon.svg" alt="Todo List Icon" className="todoListIcon" />
+        ) : (
+          <span className="closeIcon">&#10006;</span>
+        )}
+      </button>
       <h2 className={`todoHeader ${isHidden ? "hidden" : ""}`}>To-Do List</h2>
       <div className={`input-container ${isHidden ? "hidden" : ""}`}>
-        <input
-          className="inputField"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          onKeyDown={handleKeyPress}
-          placeholder="Enter a task..."
-        />
-        <button className="addButton" onClick={addTask}>
-          Add
-        </button>
         <button
           className="clearButton"
           onClick={handleClear}
@@ -110,7 +104,17 @@ const TodoList = () => {
         >
           Clear
         </button>
+        <button className="addButton" onClick={addTask}>
+          Add
+        </button>
       </div>
+      <input
+        className={`inputField ${isHidden ? "hidden" : ""}`}
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+        onKeyDown={handleKeyPress}
+        placeholder="Enter a task..."
+      />
       <div className={`tasksContainer ${isHidden ? "hidden" : ""}`}>
         {tasks.map((task) => (
           <div className="task" key={task.id}>
