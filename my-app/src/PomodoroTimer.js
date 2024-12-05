@@ -189,10 +189,10 @@ const PomodoroTimer = ({
             onClick={openAddPresetModal}>{"Add Preset"}</button>
          </div>
          {message && <p className="message">{message}</p>}
-         <div className="pomodoro-timer-buttons"  >
-            <button onClick={() => openEditPresetModal(selectedPreset)}> {"Edit"}</button>
-            <button onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
-            <button onClick={openResetModal}>Reset</button>
+         <div className="control-buttons"  >
+            <button className="pomodoro-timer-buttons" onClick={() => openEditPresetModal(selectedPreset)}> {"Edit"}</button>
+            <button className="pomodoro-timer-buttons" onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
+            <button className="pomodoro-timer-buttons" onClick={openResetModal}>Reset</button>
          </div>
 
          <div className="pomodoro-timer-display">
@@ -255,7 +255,7 @@ const PomodoroTimer = ({
                />
             </label>
             <br></br>
-            <button onClick={savePreset}>Save</button>
+            <button className="save-button" onClick={savePreset}>Save</button>
          </Modal>
 
          <Modal 

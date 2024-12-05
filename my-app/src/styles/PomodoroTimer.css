@@ -7,10 +7,23 @@
    padding: 20px;
 }
 
+.pomodoro-timer-container button {
+   border-radius: 8px;
+   background: var(--bg-secondary);
+   color: var(--text-color);
+}
+
+.pomodoro-timer-container button:hover,
+.pomodoro-timer-container select:hover {
+   filter: invert(1);
+   cursor: pointer;
+   transition: filter 0.3s ease;
+}
+
 .timer-title {
    font-size: 3rem;
    font-weight: bold;
-   color: black;
+   color: var(--text-color);
 }
  
 .pomodoro-timer-display {
@@ -23,6 +36,7 @@
    font-size: 1.5rem;
    font-weight: bold;
    margin-top: 20px;
+   color: var(--text-color);
 }
 
 .preset-select {
@@ -35,8 +49,9 @@
    font-weight: bold;
    border-width: 0px;
    border-radius: 8px;
-   background: #f0f0f0;
-   transition: background-color 0.3s;
+   color: var(--text-color);
+   background: var(--bg-secondary);
+   transition: background 0.3s;
 }
 
 .add-preset-button {
@@ -45,38 +60,29 @@
    margin-left: 40px;
    font-size: 1.5rem;
    font-weight: bold;
-   color: black;
    border: none;
    border-radius: 8px;
    cursor: pointer;
-   transition: background-color 0.3s;
+   color: var(--text-color);
+   background: var(--bg-secondary);
+   transition: background 0.3s;
 }
 
-.pomodoro-timer-buttons {
+.control-buttons {
    display: flex;
    gap: 40px;
    margin-top: 40px;
 }
 
-.pomodoro-timer-buttons button {
+.pomodoro-timer-buttons {
    padding: 10px 20px;
    font-size: 1.5rem;
    font-weight: bold;
-   color: black;
    border: none;
    border-radius: 8px;
    cursor: pointer;
-   transition: background-color 0.3s;
    width: 120px;
    height: 45px;
-}
-
-.pomodoro-timer-buttons button img{
-   width: 1.5rem;
-}
-
-.pomodoro-timer-buttons button:hover img{
-   filter: invert(100%);
 }
 
 .modal-line{
@@ -95,6 +101,7 @@
    font-size: 1.5rem;
    font-weight: bold;
    margin-top: 20px;
+   color: var(--text-color);
 }
 
 .hints {
@@ -104,4 +111,17 @@
    font-size: 1.5rem;
    font-style: italic;
    padding-top: 10%;
+   color: var(--text-color);
+}
+
+.save-button {
+   background: var(--bg-secondary);
+   cursor: pointer;
+   transition: filter 0.3s ease;
+}
+
+.save-button:hover {
+   filter: invert(1);
+   cursor: pointer;
+   transition: filter 0.3s ease;
 }

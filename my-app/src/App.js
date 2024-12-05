@@ -5,6 +5,7 @@ import TodoList from "./TodoList";
 import Notes from "./Notes";
 import Modal from "./Modal";
 import "./styles/App.css";
+import "./styles/styles.css";
 
 function App() {
   const defaultPreset = { name: "Default", workTime: 25, breakTime: 5 };

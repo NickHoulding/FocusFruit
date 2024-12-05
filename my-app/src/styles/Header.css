@@ -8,7 +8,7 @@
    align-items: center;
    justify-content: space-between;
    padding: 10px 20px;
-   background-color: #78ad7a;
+   background: #78ad7a;
    color: white;
    position: relative;
 }
@@ -30,24 +30,24 @@
    font-weight: bold;
    border: none;
    border-radius: 5px;
-   background-color: rgba(0, 0, 0, 0.25);
+   background: rgba(0, 0, 0, 0.25);
    color: white;
 }
 
 .presets-dropdown select option {
-   background-color: white;
+   background: white;
    color: black;
 }
 
 .presets-dropdown select:hover {
-   background-color: rgba(0, 0, 0, 1);
+   background: rgba(0, 0, 0, 1);
    padding: 5px;
    cursor: pointer;
-   transition: background-color 0.3s ease, color 0.3s ease;
+   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .badge-button {
-   background-color: rgba(0, 0, 0, 0.25);
+   background: rgba(0, 0, 0, 0.25);
    color: white;
    border: none;
    font-size: 16pt;
@@ -56,17 +56,28 @@
    padding: 5px;
 }
 
+.badge-button:hover {
+   color: white;
+   background: black;
+   transition: background 0.3s ease;
+}
+
 .hamburger-button {
-   background-color: rgba(0, 0, 0, 0.25);
+   background: rgba(0, 0, 0, 0.25);
    border: none;
    cursor: pointer;
 }
 
 .settings-button {
    color: white;
-   background-color: rgba(0, 0, 0, 0.25);
+   background: rgba(0, 0, 0, 0.25);
    border: none;
    cursor: pointer;
+}
+
+.settings-button:hover {
+   background: black;
+   transition: background 0.3s ease;
 }
 
 .settings-icon {
@@ -91,6 +102,6 @@
    display: block;
    width: 100%;
    height: 2px;
-   background-color: currentColor;
+   background: currentColor;
    border-radius: 2px;
  }

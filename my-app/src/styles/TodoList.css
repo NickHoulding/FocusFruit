@@ -5,7 +5,7 @@
   width: 100%;
   position: relative;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: var(--bg-secondary);
   z-index: 2;
   transition: transform 0.3s ease;
 }
@@ -24,6 +24,14 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  color: var(--text-color);
+  background-color: var(--bg-secondary);
+}
+
+.todotoggleButton:hover {
+  filter: invert(1);
+  border-color: transparent;
+  transition: filter 0.3s ease, border-color 0.3s ease;
 }
 
 .todoHeader {
@@ -31,6 +39,7 @@
   transition: opacity 0.3s ease;
   margin-top: 50px;
   height: 33px;
+  color: var(--text-color);
 }
 
 .todoHeader.hidden {
@@ -52,11 +61,19 @@
   pointer-events: none;
 }
 
+.input-container button:not(:disabled):hover {
+  filter: invert(1);
+  border-color: transparent;
+  transition: filter 0.3s ease, border-color 0.3s ease;
+}
+
 .inputField {
   flex-grow: 1;
   padding: 5px;
   border-radius: 5px;
+  border-color: var(--text-color);
   background: transparent;
+  color: var(--text-color);
 }
 
 .addButton, .clearButton {
@@ -65,6 +82,8 @@
   padding: 5px;
   cursor: pointer;
   margin-left: 10px;
+  color: var(--text-color);
+  background: var(--bg-secondary);
 }
 
 .clearButton:disabled {
@@ -95,11 +114,13 @@
   max-width: 100%;
   word-wrap: break-word;
   word-break: break-all;
+  color: var(--text-color);
 }
 
 .task:hover {
-  background-color: #dcdcdc;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--text-color);
+  background-color: var(--bg-primary);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .todo-checkbox {
@@ -120,13 +141,14 @@
   border-radius: 5px;
   background: transparent;
   font-size: 15px;
+  color: var(--text-color);
 }
 
 .delTask {
   width: 20px;
   background: none;
   border: none;
-  color: black;
+  color: var(--text-color);
   cursor: pointer;
   opacity: 25%;
   transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
@@ -141,11 +163,17 @@
 .noButton {
   width: 50%;
   margin-right: 20px;
-  background: none;
+  background: var(--bg-secondary);
   border-width: 2px;
-  border-color: black;
+  border-color: var(--text-color);
   cursor: pointer;
-  color: black;
+  color: var(--text-color);
+}
+
+.noButton:hover {
+  filter: invert(1);
+  border-color: transparent;
+  transition: filter 0.3s ease;
 }
 
 .yesButton {
@@ -153,14 +181,16 @@
   margin-left: 20px;
   background: none;
   border-width: 2px;
-  border-color: black;
+  border-color: var(--text-color);
   cursor: pointer;
-  color: black;
+  color: var(--text-color);
 }
 
 .yesButton:hover {
   background-color: rgb(223, 63, 63);
   border-color: rgb(223, 63, 63);
+  color: white;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .no-spacing {

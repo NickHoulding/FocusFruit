@@ -19,7 +19,7 @@
   top: 0;
   left: 0;
   z-index: 2;
-  background-color: transparent;
+  background: transparent;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background: var(--bg-primary);
   width: 100%;
 }
 
@@ -43,7 +43,7 @@
   top: 0;
   right: 0;
   z-index: 2;
-  background-color: transparent;
+  background: transparent;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -54,22 +54,17 @@
 
 button {
   border-radius: 5px;
-  border-color: #000000;
+  background: var(--bg-primary);
+  color: var(--text-color);
+  border-color: var(--text-color);
   padding: 5px;
 }
 
-button:hover {
-  background-color: #000000;
-  color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 button:disabled {
-  background-color: none;
-  border-color: #000000;
-  color: #000000;
-  background-color: transparent;
+  background: none;
+  border-color: var(--text-color);
+  color: var(--text-color);
+  background: transparent;
   cursor: not-allowed;
   opacity: 50%;
 }
