@@ -2,10 +2,20 @@
     --bg-primary: #ffffff;
     --bg-secondary: #cfcfcf;
     --text-color: #121212;
+    --red: #B02A2A;
+    --default-accent-color: #78AD7A;    
+    --user-accent-color: var(--default-accent-color);
+    --default-timer-volume: var(--user-timer-volume);
+    --user-timer-volume: var(--default-timer-volume);
 }
 
 [data-theme="dark"] {
     --bg-primary: #121212;
     --bg-secondary: #2a2a2a;
     --text-color: #E0E0E0;
+    --red: #B02A2A;
+    --default-accent-color: #78AD7A;
+    --user-accent-color: var(--default-accent-color);
+    --default-timer-volume: var(--user-timer-volume);
+    --user-timer-volume: var(--default-timer-volume);
 }

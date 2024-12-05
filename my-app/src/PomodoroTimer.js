@@ -59,9 +59,8 @@ const PomodoroTimer = ({
             setTime((prevTime) => prevTime - 1);
          }, 1000);
       } else if (time === 0 && isActive) {
-         if (!isNaN(volume) && volume >= 0 && volume <= 100) {
-            audio.volume = volume / 100;
-         }
+         const rootVolume = getComputedStyle(document.documentElement).getPropertyValue('--default-timer-volume');
+         audio.volume = parseFloat(rootVolume);
          audio.play().catch(error => {
             console.error("Error playing audio:", error);
          });

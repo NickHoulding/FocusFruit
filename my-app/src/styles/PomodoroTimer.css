@@ -29,7 +29,7 @@
 .pomodoro-timer-display {
    font-size: 10rem;
    font-weight: bold;
-   color: #3b7237;
+   color: var(--user-accent-color);
 }
 
 .preset-label {

@@ -4,8 +4,9 @@
    left: 0;
    width: 250px;
    height: 100vh;
-   background-color: #333;
-   color: white;
+   background-color: var(--bg-primary);
+   border: 2px solid var(--text-color);
+   color: var(--text-color);
    transform: translateX(-100%);
    transition: transform 0.3s ease;
    padding: 20px;
@@ -31,11 +32,37 @@ h2 {
 
 .volume-slider {
    width: 100%;
+   -webkit-appearance: none;
+   appearance: none;
+   height: 5px;
+   background: var(--text-color);
+   outline: none;
+   transition: opacity 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   width: 15px;
+   height: 15px;
+   background: var(--text-color);
+   cursor: pointer;
+   border-radius: 50%;
+}
+
+.volume-slider::-moz-range-thumb {
+   width: 15px;
+   height: 15px;
+   background: var(--text-color);
+   cursor: pointer;
+   border-radius: 50%;
 }
 
 .color-picker {
    width: 100%;
+   height: 45px;
    border-radius: 5px;
+   cursor: pointer;
 }
 
 .mode-dropdown {
@@ -44,9 +71,9 @@ h2 {
    font-size: 1em;
    border-radius: 5px;
    border-width: 2px;
-   border-color: white;
+   border-color: var(--text-color);
    background: transparent;
-   color: white;
+   color: var(--text-color);
    transition: background 0.3s ease, color 0.3s ease;
    cursor: pointer;
 }
@@ -56,8 +83,8 @@ h2 {
 }
 
 .mode-dropdown:hover {
-   background: white;
-   color: black;
+   background: var(--text-color);
+   color: var(--bg-primary);
    cursor: pointer;
 }
 
@@ -66,9 +93,9 @@ h2 {
    padding: 10px;
    margin: 20px;
    background: transparent;
-   border-color: white;
+   border-color: var(--text-color);
    border-width: 2px;
-   color: white;
+   color: var(--text-color);
    cursor: pointer;
    font-size: 1em;
    border-radius: 5px;
@@ -78,8 +105,8 @@ h2 {
 }
 
 .about-button:hover {
-   background: white;
-   color: black;
+   background: var(--text-color);
+   color: var(--bg-primary);
    transition: all 0.3s ease;
 }
 
@@ -105,17 +132,17 @@ h2 {
    padding: 10px;
    margin-top: 20px;
    background: transparent;
-   border-color: white;
+   border-color: var(--text-color);
    border-width: 2px;
-   color: white;
+   color: var(--text-color);
    cursor: pointer;
    font-size: 1em;
    border-radius: 5px;
 }
 
 .test-volume-button:hover {
-   background: white;
-   color: black;
+   background: var(--text-color);
+   color: var(--bg-primary);
    transition: all 0.3s ease;
 }
 

@@ -6,6 +6,7 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
   const [volume, setVolume] = useState(50);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [mode, setMode] = useState("light");
+  const [accentColor, setAccentColor] = useState("#78AD7A");
 
   const testVolume = () => {
     const audio = new Audio('/sounds/new-notification-7-210334.mp3');
@@ -29,6 +30,18 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
     document.documentElement.setAttribute("data-theme", selectedMode);
   };
 
+  const handleColorChange = (e) => {
+    const newColor = e.target.value;
+    setAccentColor(newColor);
+    document.documentElement.style.setProperty("--user-accent-color", newColor);
+  };
+
+  const handleVolumeChange = (e) => {
+    const newVolume = e.target.value;
+    setVolume(newVolume);
+    document.documentElement.style.setProperty("--user-timer-volume", newVolume / 100);
+  };
+
   return (
     <div className={`side-panel ${isOpen ? "open" : ""}`}>
       <button className="close-button" onClick={onClose}>&#10006;</button>
@@ -42,14 +55,19 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
           min="0"
           max="100"
           value={volume}
-          onChange={(e) => setVolume(e.target.value)}
+          onChange={handleVolumeChange}
           className="volume-slider"
         />
         <span className="volume-percentage">{volume}%</span>
       </div>
       <button className="test-volume-button" onClick={testVolume}>Test Volume</button>
       <h3>Display</h3>
-      <input type="color" className="color-picker" />
+      <input
+        type="color"
+        className="color-picker"
+        value={accentColor}
+        onChange={handleColorChange}
+      />
       <h3>Theme</h3>
       <select className="mode-dropdown" value={mode} onChange={handleModeChange}>
         <option value="light">Light</option>

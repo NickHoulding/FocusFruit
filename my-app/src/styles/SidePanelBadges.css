@@ -4,9 +4,10 @@
     right: 0;
     width: 250px;
     height: 100vh;
-    background-color: #333;
-    color: white;
+    background-color: var(--bg-primary);
+    color: var(--text-color);
     transform: translateX(100%);
+    border: 2px solid var(--text-color);
     transition: transform 0.3s ease;
     padding: 20px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);

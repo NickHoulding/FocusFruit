@@ -6,6 +6,7 @@
   position: relative;
   padding: 20px;
   background-color: var(--bg-secondary);
+  border: 2px solid var(--text-color);
   z-index: 2;
   transition: transform 0.3s ease;
 }
@@ -150,14 +151,12 @@
   border: none;
   color: var(--text-color);
   cursor: pointer;
-  opacity: 25%;
   transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 .delTask:hover {
-  background: rgb(223, 63, 63);
+  background: var(--red);
   color: white;
-  opacity: 100%;
 }
 
 .noButton {
@@ -187,8 +186,8 @@
 }
 
 .yesButton:hover {
-  background-color: rgb(223, 63, 63);
-  border-color: rgb(223, 63, 63);
+  background-color: var(--red);
+  border-color: var(--red);
   color: white;
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
