@@ -93,16 +93,6 @@ const TodoList = () => {
         </button>
       <h2 className={`todoHeader ${isHidden ? "hidden" : ""}`}>To-Do List</h2>
       <div className={`input-container ${isHidden ? "hidden" : ""}`}>
-        <input
-          className="inputField"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          onKeyDown={handleKeyPress}
-          placeholder="Enter a task..."
-        />
-        <button className="addButton" onClick={addTask}>
-          Add
-        </button>
         <button
           className="clearButton"
           onClick={handleClear}
@@ -110,7 +100,17 @@ const TodoList = () => {
         >
           Clear
         </button>
+        <button className="addButton" onClick={addTask}>
+          Add
+        </button>
       </div>
+      <input
+        className={`inputField ${isHidden ? "hidden" : ""}`}
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+        onKeyDown={handleKeyPress}
+        placeholder="Enter a task..."
+      />
       <div className={`tasksContainer ${isHidden ? "hidden" : ""}`}>
         {tasks.map((task) => (
           <div className="task" key={task.id}>

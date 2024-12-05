@@ -13,7 +13,7 @@
 }
 
 .notesContainer.hidden {
-    transform: translateX(calc(100% - 75px));
+    transform: translateX(calc(100% - 80px));
 }
 
 .notesContainer button:not(:disabled):hover {
@@ -23,10 +23,10 @@
 }
 
 .toggleButton {
-    width: 35px;
+    width: 40px;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     margin-bottom: 10px;
     color: var(--text-color);
@@ -52,6 +52,7 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
+    font-size: 1.2rem;
     background: var(--bg-primary);
     color: var(--text-color);
     resize: none;
