@@ -5,7 +5,7 @@ IP      Kiley       Pomodoro Timer
 IP      Kiley       Presets
 DN      Nick        ToDo List
 DN      Nick        Notes
-IP      Nick        Settings panel (prioritize functional settings)
+DN      Nick        Settings panel (prioritize functional settings)
 IP      Kiley       Pop-up for editing Presets
 IP      Thor        Achievement Badges (Reached time milestone, etc.)
 IP      Kiley       Rotating reminders/tips
