@@ -8,9 +8,9 @@ DN      Nick        Notes
 IP      Nick        Settings panel (prioritize functional settings)
 IP      Kiley       Pop-up for editing Presets
 IP      Thor        Achievement Badges (Reached time milestone, etc.)
-NS      Kiley       Rotating reminders/tips
+IP      Kiley       Rotating reminders/tips
 NS      Nick        Welcome/landing page
-IP      Kiley       Break page
+DN      Kiley       Break page
 DN      Nick        Timer countdown in browser tab
 
 EXTRA IMPLEMENTATION
