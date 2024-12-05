@@ -14,7 +14,7 @@
 }
 
 .pomodoro-timer-container button:hover,
-.pomodoro-timer-container select:hover {
+.preset-label select:hover {
    filter: invert(1);
    cursor: pointer;
    transition: filter 0.3s ease;
@@ -115,7 +115,7 @@
 }
 
 .save-button {
-   background: var(--bg-secondary);
+   background: var(--bg-primary);
    cursor: pointer;
    transition: filter 0.3s ease;
 }

@@ -1,11 +1,11 @@
 :root {
-    --bg-primary: white;
-    --bg-secondary: #f0f0f0;
-    --text-color: black;
+    --bg-primary: #ffffff;
+    --bg-secondary: #cfcfcf;
+    --text-color: #121212;
 }
 
 [data-theme="dark"] {
-    --bg-primary: black;
-    --bg-secondary: #333;
-    --text-color: white;
+    --bg-primary: #121212;
+    --bg-secondary: #2a2a2a;
+    --text-color: #E0E0E0;
 }
