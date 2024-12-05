@@ -6,26 +6,32 @@
    flex-direction: column;
    padding: 20px;
 }
+
+.timer-title {
+   font-size: 3rem;
+   font-weight: bold;
+   color: black;
+}
  
 .pomodoro-timer-display {
-   font-size: 7rem;
+   font-size: 10rem;
    font-weight: bold;
    color: #3b7237;
 }
 
-.preset-selector-label {
+.preset-label {
    font-size: 1.5rem;
    font-weight: bold;
    margin-top: 20px;
 }
 
-.preset-selector {
-   display: flex;
+.preset-select {
    height: 45px;
    gap: 20px;
    padding: 10px 20px;
    margin-top: 10px;
-   font-size: 1.2rem;
+   margin-left: 10px;
+   font-size: 1.5rem;
    font-weight: bold;
    border-width: 0px;
    border-radius: 8px;
@@ -37,7 +43,7 @@
    height: 45px;
    padding: 10px 20px;
    margin-left: 40px;
-   font-size: 1.2rem;
+   font-size: 1.5rem;
    font-weight: bold;
    color: black;
    border: none;
@@ -54,7 +60,7 @@
 
 .pomodoro-timer-buttons button {
    padding: 10px 20px;
-   font-size: 1.2rem;
+   font-size: 1.5rem;
    font-weight: bold;
    color: black;
    border: none;
@@ -85,11 +91,17 @@
    width: 100px;
 }
 
+.session-type {
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin-top: 20px;
+}
+
 .hints {
    bottom: 10px;
    width: 100%;
    text-align: center;
-   font-size: 1.2rem;
+   font-size: 1.5rem;
    font-style: italic;
    padding-top: 10%;
 }

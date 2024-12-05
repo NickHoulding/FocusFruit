@@ -164,12 +164,15 @@ const PomodoroTimer = ({
 
    return (
       <div className="pomodoro-timer-container">
-         <h1>FocusFruit</h1>
+         <h1 className="timer-title" >FocusFruit</h1>
        
          <div>
-         <label>
+         <label
+            className="preset-label"
+         >
             Presets:
             <select
+               className="preset-select"
                value={selectedPreset.name}
                onChange={(e) =>
                applyPreset(presets.find((preset) => preset.name === e.target.value))
@@ -203,7 +206,11 @@ const PomodoroTimer = ({
             </div>
          </div>
 
-         <h2>{isWorkSession ? "Work Session" : "Break Session"}</h2>
+         <h2
+            className="session-type"
+         >
+            {isWorkSession ? "Work Session" : "Break Session"}
+         </h2>
    
          <div className="hints">
             <p>{currentHint || "Set a clear goal for this session - what do you want to achieve?"}</p>
