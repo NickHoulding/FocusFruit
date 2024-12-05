@@ -42,7 +42,7 @@ const PomodoroTimer = ({
    const changeHint = () => {
       const newHint = getRandomHint();
       setCurrentHint(newHint);
-   }
+   };
 
    useEffect(() => {
       if (isWorkSession) {
@@ -67,6 +67,11 @@ const PomodoroTimer = ({
          setMessage(isWorkSession ? "Great Job! You've earned a break." : "");
          setIsWorkSession(!isWorkSession);
          setIsActive(false);
+         
+         const changeHint = () => {
+            const newHint = getRandomHint();
+            setCurrentHint(newHint);
+         };
          changeHint();
       }
       return () => clearInterval(interval);
@@ -162,40 +167,37 @@ const PomodoroTimer = ({
 
    return (
       <div className="pomodoro-timer-container">
-         <h1 className="timer-title" >FocusFruit</h1>
+         {/* <h1 className="timer-title" >FocusFruit</h1> */}
+         <div className="presets">
+            <label className="preset-label">
+               Presets:
+               <select
+                  className="preset-select"
+                  value={selectedPreset.name}
+                  onChange={(e) =>
+                     applyPreset(presets.find((preset) => preset.name === e.target.value))
+                  }
+               >
+                  {presets.map((preset) => (
+                     <option key={preset.name} value={preset.name}>
+                        {preset.name}
+                     </option>
+                  ))}
+               </select>
+               <button 
+                  className="add-preset-button"
+                  onClick={openAddPresetModal}>{"Add Preset"}
+            </button>
+            </label>
+         </div>
        
-         <div>
-         <label
-            className="preset-label"
-         >
-            Presets:
-            <select
-               className="preset-select"
-               value={selectedPreset.name}
-               onChange={(e) =>
-               applyPreset(presets.find((preset) => preset.name === e.target.value))
-               }
-            >
-               {presets.map((preset) => (
-               <option key={preset.name} value={preset.name}>
-                  {preset.name}
-               </option>
-               ))}
-            </select>
-         </label>
-         <button 
-            className="add-preset-button"
-            onClick={openAddPresetModal}>{"Add Preset"}</button>
-         </div>
          {message && <p className="message">{message}</p>}
-         <div className="control-buttons"  >
-            <button className="pomodoro-timer-buttons" onClick={() => openEditPresetModal(selectedPreset)}> {"Edit"}</button>
-            <button className="pomodoro-timer-buttons" onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
-            <button className="pomodoro-timer-buttons" onClick={openResetModal}>Reset</button>
-         </div>
 
          <div className="pomodoro-timer-display">
-            <div>
+            <h2 className="session-type">
+               {isWorkSession ? "Work Session" : "Break Session"}
+            </h2>
+            <div className="timer">
                {time >= 3600
                   ? `${Math.floor(time / 3600)}:${Math.floor((time % 3600) / 60).toString().padStart(2, '0')}:${(time % 60).toString().padStart(2, '0')}`
                   : time >= 60
@@ -204,11 +206,11 @@ const PomodoroTimer = ({
             </div>
          </div>
 
-         <h2
-            className="session-type"
-         >
-            {isWorkSession ? "Work Session" : "Break Session"}
-         </h2>
+         <div className="control-buttons"  >
+            <button className="pomodoro-timer-buttons" onClick={() => openEditPresetModal(selectedPreset)}> {"Edit"}</button>
+            <button className="pomodoro-timer-buttons" onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
+            <button className="pomodoro-timer-buttons" onClick={openResetModal}>Reset</button>
+         </div>
    
          <div className="hints">
             <p>{currentHint || "Set a clear goal for this session - what do you want to achieve?"}</p>

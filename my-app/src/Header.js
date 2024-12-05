@@ -31,11 +31,13 @@ const Header = ({
    return (
       <div className="headerContainer">
          <header className="header">
-            <button className="settings-button" onClick={toggleSettingsPanel}>
-               <img src="/icons/settings-gear.svg" alt="Settings" className="settings-icon" />
-            </button>
-         {/* <div className="site-name">FocusFruit</div> */}
-         <div className="presets-dropdown">
+            <div className="settings">
+               <button className="settings-button" onClick={toggleSettingsPanel}>
+                  <img src="/icons/settings-gear.svg" alt="Settings" className="settings-icon" />
+               </button>
+            </div>
+         <div className="site-name">FocusFruit</div>
+         {/* <div className="presets-dropdown">
             <select value={selectedPreset.name} onChange={handlePresetChange}>
                <option value="title">Select Preset</option>
                {presets.map((preset) => (
@@ -45,7 +47,7 @@ const Header = ({
                ))}
                <option value="add-new">Add New Preset</option>
             </select>
-         </div>
+         </div> */}
          <div className="badges">
             <button className="badge-button" onClick={toggleBadgesPanel}>
                Achievements

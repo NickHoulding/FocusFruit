@@ -4,7 +4,6 @@
    align-items: center;
    height: 80vh;
    flex-direction: column;
-   padding: 20px;
 }
 
 .pomodoro-timer-container button {
@@ -27,25 +26,34 @@
 }
  
 .pomodoro-timer-display {
+   display: flex;
+   flex-direction: column;
+   padding-top: 10%;
+}
+
+.timer {
    font-size: 10rem;
    font-weight: bold;
    color: var(--user-accent-color);
 }
 
+.presets {
+   display: flex;
+   flex-direction: row;
+   gap: 30px;
+}
+
 .preset-label {
    font-size: 1.5rem;
    font-weight: bold;
-   margin-top: 20px;
    color: var(--text-color);
 }
 
 .preset-select {
    height: 45px;
-   gap: 20px;
-   padding: 10px 20px;
-   margin-top: 10px;
-   margin-left: 10px;
+   width: 120px;
    font-size: 1.5rem;
+   margin-left: 15px;
    font-weight: bold;
    border-width: 0px;
    border-radius: 8px;
@@ -56,10 +64,9 @@
 
 .add-preset-button {
    height: 45px;
-   padding: 10px 20px;
-   margin-left: 40px;
    font-size: 1.5rem;
    font-weight: bold;
+   margin-left: 30px;
    border: none;
    border-radius: 8px;
    cursor: pointer;
@@ -71,7 +78,7 @@
 .control-buttons {
    display: flex;
    gap: 40px;
-   margin-top: 40px;
+   margin-top: 0%;
 }
 
 .pomodoro-timer-buttons {
@@ -98,9 +105,11 @@
 }
 
 .session-type {
+   align-self: center;
+   padding: 0%;
+   margin: 0%;
    font-size: 1.5rem;
    font-weight: bold;
-   margin-top: 20px;
    color: var(--text-color);
 }
 
