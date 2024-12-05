@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
-import "./SidePanel.css";
+import "./styles/SidePanel.css";
 
 const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
    const [volume, setVolume] = useState(50);

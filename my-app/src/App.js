@@ -4,7 +4,7 @@ import PomodoroTimer from "./PomodoroTimer";
 import TodoList from "./TodoList";
 import Notes from "./Notes";
 import Modal from "./Modal";
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
   const defaultPreset = { name: "Default", workTime: 25, breakTime: 5 };

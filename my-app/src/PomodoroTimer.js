@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
-import "./PomodoroTimer.css";
-import pen from "./pen.png";
+import "./styles/PomodoroTimer.css";
 
 const PomodoroTimer = ({
    volume

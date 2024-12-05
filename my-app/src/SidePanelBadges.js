@@ -1,5 +1,5 @@
 import React from "react";
-import "./SidePanelBadges.css";
+import "./styles/SidePanelBadges.css";
 
 const SidePanelBadges = ({ isOpen, onClose }) => {
    return (

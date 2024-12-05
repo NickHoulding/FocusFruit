@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SidePanel from "./SidePanel";
 import SidePanelBadges from "./SidePanelBadges";
-import "./Header.css";
+import "./styles/Header.css";
 
 const Header = ({ 
    openEditPresetModal,
