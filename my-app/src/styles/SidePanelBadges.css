@@ -18,6 +18,10 @@
     transform: translateX(0);
  }
 
+ .side-panel-badges h2 {
+      font-size: 1.8em;
+ }
+
  .close-button {
     background: none;
     border: none;

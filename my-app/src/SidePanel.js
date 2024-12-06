@@ -60,7 +60,7 @@ const SidePanel = ({ isOpen, onClose, openEditPresetModal }) => {
         />
         <span className="volume-percentage">{volume}%</span>
       </div>
-      <button className="test-volume-button" onClick={testVolume}>Test Volume</button>
+      <button className="test-volume-button" onClick={testVolume}><h3>Test Volume</h3></button>
       <h3>Display</h3>
       <input
         type="color"
