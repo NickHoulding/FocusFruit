@@ -256,7 +256,7 @@ const PomodoroTimer = ({
                />
             </label>
             <br></br>
-            <button className="save-button" onClick={savePreset}>Save</button>
+            <button className="save-button" onClick={savePreset}><h3>Save</h3></button>
          </Modal>
 
          <Modal 
