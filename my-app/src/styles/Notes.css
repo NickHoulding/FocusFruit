@@ -59,6 +59,7 @@
     opacity: 100%;
     color: var(--text-color);
     transition: opacity 0.3s ease;
+    margin-top: -6px;
 }
 
 .notesHeader.hidden {
