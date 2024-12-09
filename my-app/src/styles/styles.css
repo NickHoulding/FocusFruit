@@ -6,7 +6,7 @@
     --default-accent-color: #78AD7A;    
     --user-accent-color: var(--default-accent-color);
     --default-timer-volume: var(--user-timer-volume);
-    --user-timer-volume: var(--default-timer-volume);
+    --user-timer-volume: 0.5;
 }
 
 [data-theme="dark"] {
@@ -17,5 +17,5 @@
     --default-accent-color: #78AD7A;
     --user-accent-color: var(--default-accent-color);
     --default-timer-volume: var(--user-timer-volume);
-    --user-timer-volume: var(--default-timer-volume);
+    --user-timer-volume: 0.5;
 }
